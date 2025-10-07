@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luck Game Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6dd5fa, #2980b9);
+      color: white;
+      text-align: center;
+      padding-top: 60px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      width: 320px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    input {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #219150;
+    }
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .summary {
+      margin-top: 10px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎲 Luck Game Demo</h2>
+    <p>Enter your details and try your luck with 20 virtual KSH!</p>
+
+    <form action="/play" method="POST">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="text" name="contact" placeholder="Enter contact (virtual)" required>
+      <button type="submit">Try Your Luck</button>
+    </form>
+
+    {% if message %}
+      <div class="message">{{ message }}</div>
+    {% endif %}
+
+    {% if summary %}
+      <div class="summary">{{ summary }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
